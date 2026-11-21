@@ -1,13 +1,16 @@
 package com.game.spaceshooter.presentation.ui;
 
+import com.game.spaceshooter.application.core.GameEngine;
 import com.game.spaceshooter.infrastructure.config.GameConfig;
 
 import java.awt.*;
 import javax.swing.JPanel;
 
 public class GamePanel extends JPanel {
+    private GameEngine gameEngine;
 
-    public GamePanel() {
+    public GamePanel(GameEngine gameEngine) {
+        this.gameEngine = gameEngine;
         setDefaultPanel();
     }
 
@@ -19,6 +22,10 @@ public class GamePanel extends JPanel {
     public void paintComponent(Graphics g) {
         Graphics2D g2D = (Graphics2D) g;
         super.paintComponent(g2D);
+    }
+
+    public void stopGameLoop() {
+        gameEngine.stop();
     }
 
 }
