@@ -1,6 +1,7 @@
 package com.game.spaceshooter.presentation.ui;
 
 import java.awt.event.WindowEvent;
+import java.awt.event.WindowFocusListener;
 import java.awt.event.WindowAdapter;
 import javax.swing.JFrame;
 
@@ -26,5 +27,16 @@ public class GameWindow {
         window.setVisible(true);
         window.setFocusable(true);
         window.requestFocusInWindow();
+        window.addWindowFocusListener(new WindowFocusListener() {
+            @Override
+            public void windowGainedFocus(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowLostFocus(WindowEvent e) {
+                gamePanel.windowFocusLost();
+            }
+        });
     }
 }
