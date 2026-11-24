@@ -48,6 +48,7 @@ public abstract class Projectile extends DynamicEntity implements Poolable {
     public void onRelease() {
         setPosition(0, 0);
         setDirection(0, 0);
+        setSpeed(getSpeedLimit());
         active = false;
         owner = Owner.NONE;
         setCurrentAngle(0);

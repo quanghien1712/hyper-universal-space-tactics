@@ -9,6 +9,9 @@ public class HomingBullet extends Projectile{
     private static final int DEFAULT_DAMAGE = 5;
     private static final double DEFAULT_SPEED = 260;
     private static final double ROTATION_SPEED = 1.4;
+    private static final double MOVE_RADIUS = 0;
+    private static final double ACCELERATION = 2;
+    private static final double DRAG = 0;
 
     private Damageable target;
 
@@ -17,14 +20,17 @@ public class HomingBullet extends Projectile{
         setRotationSpeed(ROTATION_SPEED);
         setMaxSpeed(DEFAULT_SPEED);
         setSpeed(DEFAULT_SPEED);
-        setMovement(new MoveToTarget(0, 2, 0));
+        setMovement(new MoveToTarget(MOVE_RADIUS, ACCELERATION, DRAG));
     }
 
     @Override
     public void update(double deltaTime) {
-        if (target != null && !target.isDead()) {
-            move(deltaTime);
+        if (target == null) return;
+        if (target.isDead()) {
+            setActive(false);
+            return;
         }
+        move(deltaTime);
     }
 
     @Override

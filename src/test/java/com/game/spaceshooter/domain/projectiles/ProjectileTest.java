@@ -155,6 +155,7 @@ class ProjectileTest {
         void onRelease_resetsStateAndInactive() {
             projectile.setPosition(300, 400);
             projectile.setDirection(0, -1);
+            projectile.setSpeed(100);
             projectile.setCurrentAngle(1.5);
             projectile.setOwner(Projectile.Owner.ENEMY);
             projectile.setActive(true);
@@ -163,6 +164,7 @@ class ProjectileTest {
 
             assertVector(0, 0, projectile.getPosition());
             assertVector(0, 0, projectile.getDirection());
+            assertEquals(1000, projectile.getSpeed());
             assertEquals(0, projectile.getCurrentAngle());
             assertEquals(Projectile.Owner.NONE, projectile.getOwner());
             assertFalse(projectile.isActive());
@@ -290,23 +292,34 @@ class ProjectileTest {
         }
 
         @Test
-        void update_deadTarget_staysInPlace() {
+        void update_deadTarget_deactivates() {
             FakeTarget target = new FakeTarget(0, -1000);
             target.kill();
+            bullet.setActive(true);
             bullet.setTarget(target);
             bullet.update(0.1);
             assertVector(0, 0, bullet.getPosition());
+            assertFalse(bullet.isActive());
         }
 
         @Test
-        void update_targetDiesMidFlight_stops() {
+        void update_withoutTarget_staysActive() {
+            bullet.setActive(true);
+            bullet.update(0.1);
+            assertTrue(bullet.isActive());
+        }
+
+        @Test
+        void update_targetDiesMidFlight_stopsAndDeactivates() {
             FakeTarget target = new FakeTarget(0, -1000);
+            bullet.setActive(true);
             bullet.setTarget(target);
             bullet.update(0.1);
             Vector2D before = bullet.getPosition();
             target.kill();
             bullet.update(0.1);
             assertEquals(before, bullet.getPosition());
+            assertFalse(bullet.isActive());
         }
 
         @Test
