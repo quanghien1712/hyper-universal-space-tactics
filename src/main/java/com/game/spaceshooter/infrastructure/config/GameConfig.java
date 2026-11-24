@@ -10,4 +10,6 @@ public class GameConfig {
     public static final int PANEL_HEIGHT = TILE_SIZE * TILES_IN_HEIGHT;
     public static final int FPS = 120;
     public static final int UPS = 120;
+
+    public static final double ROTATION_THRESHOLD = 0.01;
 }
