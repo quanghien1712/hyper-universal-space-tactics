@@ -1,8 +1,8 @@
 package com.game.spaceshooter.infrastructure.utils;
 
-import com.game.shooting2DGame.infrastructure.utils.ImageLoader;
-import com.game.shooting2DGame.infrastructure.utils.ResourceLoadException;
-import com.game.shooting2DGame.infrastructure.utils.ResourceLoader;
+import com.game.spaceshooter.infrastructure.utils.ImageLoader;
+import com.game.spaceshooter.infrastructure.utils.ResourceLoadException;
+import com.game.spaceshooter.infrastructure.utils.ResourceLoader;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;

@@ -1,4 +1,4 @@
-package com.game.shooting2DGame.infrastructure.utils;
+package com.game.spaceshooter.infrastructure.utils;
 
 import java.awt.Font;
 import java.io.InputStream;

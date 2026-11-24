@@ -1,4 +1,4 @@
-package com.game.shooting2DGame.infrastructure.utils;
+package com.game.spaceshooter.infrastructure.utils;
 
 public class ResourceLoadException extends RuntimeException {
     public ResourceLoadException(String path, String reason) {
