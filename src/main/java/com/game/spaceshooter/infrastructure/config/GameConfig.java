@@ -12,4 +12,7 @@ public class GameConfig {
     public static final int UPS = 120;
 
     public static final double ROTATION_THRESHOLD = 0.01;
+    public static final int DEAD_ZONE_WIDTH = 300;
+    public static final int DEAD_ZONE_HEIGHT = 100;
+    public static final double CAMERA_SPEED = 3.0;
 }
