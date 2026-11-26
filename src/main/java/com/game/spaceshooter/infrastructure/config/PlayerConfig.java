@@ -16,6 +16,8 @@ public class PlayerConfig {
     public static final double BOOST_COOLDOWN = 10;
 
     public static final double ROTATION_SPEED = 3;
+    public static final double ACCELERATION = 2;
+    public static final double DRAG = 1;
     public static final double DECAY_RATE =
           PlayerConfig.BOOST_SPEED / PlayerConfig.BOOST_DECAY;
 
