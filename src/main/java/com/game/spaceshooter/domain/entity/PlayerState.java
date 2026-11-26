@@ -1,5 +1,7 @@
 package com.game.spaceshooter.domain.entity;
 
 public enum PlayerState {
-    NORMAL
+    NORMAL,
+    BOOSTING,
+    BOOST_DECAY
 }
