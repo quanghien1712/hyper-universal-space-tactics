@@ -8,6 +8,8 @@ public class EnemyConfig {
     public static final double ACCELERATION = 2;
     public static final double DRAG = 2;
 
+    public static final double SPAWN_INTERVAL = 2;
+    public static final double WAVE_DELAY = 2;
     public static final double BASIC_MAX_SPEED = 250;
     public static final int BASIC_DEFAULT_HEALTH = 100;
     public static final int BASIC_DEFAULT_DAMAGE = 50;
@@ -28,4 +30,7 @@ public class EnemyConfig {
     public static final int ORBIT_DEFAULT_DAMAGE = 60;
     public static final int ORBIT_SCORE = 150;
     public static final double ORBIT_MOVE_RADIUS = 100;
+    public static final int BASE_ENEMIES = 5;
+    public static final int ENEMIES_PER_LEVEL = 2;
+    public static final int BOSS_INTERVAL = 3;
 }
