@@ -21,4 +21,7 @@ public class UIConfig {
 
     public static final int TABLE_WIDTH = 300;
     public static final int TABLE_HEIGHT = 100;
+
+    public static final int PROGRESS_BAR_WIDTH = 430;
+    public static final int PROGRESS_BAR_HEIGHT = 180;
 }
