@@ -43,6 +43,10 @@ public class StateManager {
         currentState = states.get(gameState);
     }
 
+    public boolean haveOverlay() {
+        return currentState instanceof PausedOverlay;
+    }
+
     public void setGameOverData(int score) {
         if (score < 0) throw new IllegalArgumentException("score must be nonnegative");
         this.score = score;
