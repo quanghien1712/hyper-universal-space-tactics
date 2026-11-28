@@ -2,6 +2,8 @@ package com.game.spaceshooter.application.core;
 
 import com.game.spaceshooter.application.port.AudioService;
 import com.game.spaceshooter.infrastructure.config.GameConfig;
+import com.game.spaceshooter.presentation.state.DefaultStateFactory;
+import com.game.spaceshooter.presentation.state.StateManager;
 import com.game.spaceshooter.presentation.ui.GamePanel;
 import com.game.spaceshooter.presentation.ui.GameWindow;
 
@@ -12,6 +14,7 @@ public class GameEngine implements Runnable{
     private final AudioService audio;
     private GamePanel gamePanel;
     private Thread gameThread;
+    private StateManager stateManager;
 
 
     public GameEngine(AudioService audio) {
@@ -22,7 +25,9 @@ public class GameEngine implements Runnable{
 
     private void initClasses() {
         gamePanel = new GamePanel(this);
+        stateManager = new StateManager(new DefaultStateFactory(this, audio));
         new GameWindow(gamePanel);
+        gamePanel.initWindow();
     }
 
     private void startGameThread() {
@@ -45,6 +50,7 @@ public class GameEngine implements Runnable{
                 deltaU += elapsed / timePerUpdate;
                 lastTime = currentTime;
                 if (deltaU >= 1) {
+                    stateManager.update(timePerUpdate / 1_000_000_000.0);
                     deltaU--;
                 }
                 if (!running || Thread.currentThread().isInterrupted()) break;
@@ -69,6 +75,10 @@ public class GameEngine implements Runnable{
     public void stop() {
         running = false;
         if (gameThread != null) gameThread.interrupt();
+    }
+
+    public StateManager getStateManager() {
+        return stateManager;
     }
 
     public GamePanel getGamePanel() {

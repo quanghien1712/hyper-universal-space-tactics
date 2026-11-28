@@ -23,6 +23,10 @@ public class GamePanel extends JPanel {
         addMouseMotionListener(mouseInputs);
     }
 
+    public void initWindow() {
+        requestFocus();
+    }
+
     private void setDefaultPanel() {
         setPreferredSize(new Dimension(GameConfig.PANEL_WIDTH, GameConfig.PANEL_HEIGHT));
         setDoubleBuffered(true);
@@ -31,6 +35,9 @@ public class GamePanel extends JPanel {
     public void paintComponent(Graphics g) {
         Graphics2D g2D = (Graphics2D) g;
         super.paintComponent(g2D);
+        if (gameEngine.getStateManager() != null) {
+            gameEngine.getStateManager().render(g2D);
+        }
     }
 
     public void windowFocusLost() {
