@@ -5,6 +5,7 @@
 ---
 
 ## 📸 Demo
+<img width="2560" height="1440" alt="demo" src="https://github.com/user-attachments/assets/75302dcc-4141-41e6-b5f5-eb1f4d2ec36c" />
 
 [Xem video gameplay](https://www.youtube.com/watch?v=7XMH-ewkGqI).
 
