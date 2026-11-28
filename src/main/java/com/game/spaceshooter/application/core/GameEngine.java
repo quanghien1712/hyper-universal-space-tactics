@@ -1,16 +1,21 @@
 package com.game.spaceshooter.application.core;
 
+import com.game.spaceshooter.application.port.AudioService;
 import com.game.spaceshooter.infrastructure.config.GameConfig;
 import com.game.spaceshooter.presentation.ui.GamePanel;
 import com.game.spaceshooter.presentation.ui.GameWindow;
 
+import java.util.Objects;
+
 public class GameEngine implements Runnable{
     private volatile boolean running = true;
+    private final AudioService audio;
     private GamePanel gamePanel;
     private Thread gameThread;
 
 
-    public GameEngine() {
+    public GameEngine(AudioService audio) {
+        this.audio = Objects.requireNonNull(audio, "audio is required");
         initClasses();
         startGameThread();
     }
