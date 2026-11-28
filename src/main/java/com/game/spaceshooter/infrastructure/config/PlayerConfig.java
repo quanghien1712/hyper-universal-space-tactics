@@ -14,6 +14,7 @@ public class PlayerConfig {
     public static final double BOOST_DURATION = 0.4;
     public static final double BOOST_DECAY = 1;
     public static final double BOOST_COOLDOWN = 10;
+    public static final double TRAIL_DURATION = BOOST_DURATION + BOOST_DECAY + 0.5;
 
     public static final double ROTATION_SPEED = 3;
     public static final double ACCELERATION = 2;
